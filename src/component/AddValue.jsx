@@ -23,6 +23,7 @@ export class AddValue extends Component{
         this.props.addToList({
             value:this.state.value,
             isdone: false,
+            tab:'LIST',
         })
         console.log(this.state.value);
         event.preventDefault();

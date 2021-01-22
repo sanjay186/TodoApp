@@ -10,13 +10,10 @@ import {complete} from '../actions/action';
             isdone:!props.isdone,
         })
    }
-   
     return(
        
       <div>
-      
-      
-           <input type="checkbox" onClick={()=>onclick()}/>
+           <input type="checkbox"  checked={props.isdone} onChange={()=>onclick()}/>
            {props.isdone ? <strike>  
         <label>{props.value}</label> </strike> :<label>{props.value}</label>
            }

@@ -1,20 +1,22 @@
-import { ADD_TO_LIST , IS_DONE } from "../actions/action";
+import { ADD_TO_LIST , IS_DONE, DONETAB ,DELETE_LIST} from "../actions/action";
 
 const initalState = {
     todolist:[
         {
             name:'item1',
-            done:false,
+            done:true,
         },
       
-    ]
+    ],
+
+    tab: 'ALLLIST',
 }
 
 
 function todoReducer(state=initalState ,action){
     switch(action.type){
         case ADD_TO_LIST:{
-            const {value,isdone} =action;
+            const {value,isdone,tab} =action;
             const arr = {
                 name: value,
                 done: isdone,
@@ -22,7 +24,8 @@ function todoReducer(state=initalState ,action){
        
            
             return {...state ,
-                todolist : [...state.todolist , arr]
+                todolist : [...state.todolist , arr],
+                tab:tab,
             }
 
         }
@@ -39,6 +42,18 @@ function todoReducer(state=initalState ,action){
 
                 )
                 
+            }
+        }
+        case DONETAB:{
+            const {tab}=action;
+            return{
+                    ...state , 
+                    tab: tab,
+            }
+        }
+        case DELETE_LIST:{
+            return{
+                state,
             }
         }
         default:
