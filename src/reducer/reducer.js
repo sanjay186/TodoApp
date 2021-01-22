@@ -4,7 +4,7 @@ const initalState = {
     todolist:[
         {
             name:'item1',
-            done:true,
+            done:false,
         },
       
     ]
@@ -33,16 +33,11 @@ function todoReducer(state=initalState ,action){
            
            return{
                 ...state,
-                todolist:{
-                    ...state.todolist,
-                    [m]:{
-                        name:value,
-                        done: isdone,
-                    }
-                }
-                    
-                
-                    
+                todolist:state.todolist.map(
+                    (todolist , i )=> i === m ?{...todolist,done:isdone}:todolist
+
+
+                )
                 
             }
         }

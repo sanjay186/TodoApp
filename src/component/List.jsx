@@ -16,9 +16,7 @@ import  CheckBox  from './checkbox';
         <div className="list">
             {todolist.map(el =>
            <CheckBox value = {el.name}  isdone={el.done}/>
-            )}
-             
-           
+            )}  
         
         </div>
     )
