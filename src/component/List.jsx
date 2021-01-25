@@ -2,7 +2,7 @@ import React ,{Component}from 'react';
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import  CheckBox  from './checkbox';
-import { switchtab } from '../actions/action';
+
 
  export class List extends Component{
      
@@ -12,7 +12,6 @@ import { switchtab } from '../actions/action';
     }
     
     static defaultProps = {
-
         tab:'LIST'
     }
 

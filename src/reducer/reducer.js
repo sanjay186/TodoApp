@@ -1,3 +1,4 @@
+
 import { ADD_TO_LIST , IS_DONE, DONETAB ,DELETE_LIST} from "../actions/action";
 
 const initalState = {
@@ -53,7 +54,7 @@ function todoReducer(state=initalState ,action){
         }
         case DELETE_LIST:{
             return{
-                state,
+                ...initalState,
             }
         }
         default:
