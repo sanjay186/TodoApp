@@ -1,0 +1,16 @@
+.main-div {
+   width: 100%;
+   height: 100%;
+} 
+.header{
+    display :grid;
+    background-color: antiquewhite;
+    text-align: center;
+}
+.appcontainer{
+    width: auto;
+  
+    height: 700px;
+
+    background-color: burlywood;
+}
