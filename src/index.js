@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import App from './component/App';
+import { MainContainer } from './container/MianContainer';
 import todoReducer from './reducer/reducer';
 //import {middleware} from './middleware/middleware';
   
@@ -13,7 +14,7 @@ import todoReducer from './reducer/reducer';
   console.log(store.getState());
   ReactDOM.render(
     <Provider store={store} >
-    <App />
+    <MainContainer />
     </Provider>,
 
     document.getElementById('root')
