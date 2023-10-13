@@ -36,13 +36,13 @@ export class AddValue extends Component {
     return (
       <div className="form">
         <form onSubmit={this.handleSubmit}>
-          Add Item to list:
+          Add Item to list: <br/>
           <input
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Add item" />
         </form>
       </div>
     );

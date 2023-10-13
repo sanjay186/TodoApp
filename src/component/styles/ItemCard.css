@@ -1,0 +1,16 @@
+.item-wrapper{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1 ;
+    flex-basis: auto;
+}
+.item-card{
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(223, 223, 81); */
+    border-style: dotted;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+   
+}

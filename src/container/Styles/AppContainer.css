@@ -1,0 +1,19 @@
+.inputclass{
+    height: 10vh;
+}
+.appcontainer{
+    display: flex;
+    border-style: dashed;
+  justify-content: space-evenly;
+  min-height: 69vh;
+  
+}
+
+.col{
+    display: flex;
+    /* background-color: antiquewhite; */
+    border-style: dashed;
+   width: 600px;
+  
+ flex-direction:column;
+}

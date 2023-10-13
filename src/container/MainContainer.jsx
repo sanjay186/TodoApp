@@ -1,16 +1,21 @@
 import React from "react";
-import App from "../component/App";
 import "./Styles/mainContainer.css";
+import AppContainer from "./AppContainer";
 
 export const MainContainer = () => {
   return (
-    <div className="main-div">
+    <div className="container">
       <div className="header">
-        <h1>Todo App</h1>
+        <div className="font">
+         <h3>Todo App</h3> 
+          </div>
       </div>
-      <div className="appcontainer">
-        <App />
+     <AppContainer/>
+      <div className="footer">
+        <div className="font">
+        <h3>footer</h3> </div>
       </div>
+      
     </div>
   );
 };
