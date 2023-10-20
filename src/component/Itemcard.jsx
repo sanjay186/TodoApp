@@ -26,7 +26,10 @@ const  ItemCard =(props)=>{
       Done</button> </> }
       
       </span>
-      </div>}
+     
+      </div>
+      }
+      <br/>
        
         </div>
         
