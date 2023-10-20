@@ -33,13 +33,21 @@ const initialState = {
 
 export const itemReducer = createSlice({
   name: "ItemList",
-  initialState,
+  initialState:initialState,
   reducers: {
     addItem: (state, action) => {
-      return { ...state, ItemList: [...state.ItemList, action.payload] };
-    },
-    changeState: (state) => {},
+      console.log("action.paylaod",action.payload);
+     
+      
+      state.ItemList=[...state.ItemList,action.payload] ;
+      },
+  
+   changeStatus: (state,action) => {
+    console.log("change action.paylaod",action.payload);
+   const foundItem = state.ItemList.findIndex(x => x.id === action.payload.id);
+   state.ItemList[foundItem].status=action.payload.status;
+   },
   },
 });
-export const { addItem, changeState } = itemReducer.actions;
+export const { addItem,changeStatus } = itemReducer.actions;
 export default itemReducer.reducer;

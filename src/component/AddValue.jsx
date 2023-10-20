@@ -1,62 +1,50 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { addToList } from "../actions/action";
-import PropTypes from "prop-types";
+import React,  {useState} from "react";
 import "../component/styles/componentStyles.css";
+import { addItem } from "../Redux/ItemReducer";
+import { useDispatch } from 'react-redux';
+import {genrateId , getCurrentDate}from '../common/common';
+import {STATUS_TYPE}from '../Redux/reducerConstant'
 
-export class AddValue extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "",
-    };
-  }
-  handleChange = (event) => {
-    this.setState({
-      value: event.target.value,
-    });
+export const AddValue =()=> {
+  
+const [value , setValue]= useState("");
+const dispatch = useDispatch();
+const handleChange = (event) => {
+ 
+      setValue(event.target.value)
   };
-  handleSubmit = (event) => {
-    if (this.state.value !== "") {
-      this.props.addToList({
-        value: this.state.value,
-        isdone: false,
-        tab: "LIST",
-      });
-      console.log(this.state.value);
-      event.preventDefault();
-      this.setState({
-        value: "",
-      });
+
+  const handleSubmit = (event) => {
+    if (value !== "") {
+      console.log(event);
+      dispatch(addItem(
+        {
+          id: genrateId(),
+          value: value,
+          status: STATUS_TYPE.TODO,
+          created_date: getCurrentDate(),
+        },
+      ))
+      
+     
+      setValue("");
     }
   };
 
-  render() {
+  
     return (
       <div className="form">
-        <form onSubmit={this.handleSubmit}>
+       
           Add Item to list: <br/>
           <input
             type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={value}
+            onChange={handleChange}
           />
-          <input type="submit" value="Add item" />
-        </form>
+          <input type="button" value="Add item"  onClick={handleSubmit}/>
+       
       </div>
     );
-  }
+  
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    ...bindActionCreators({ addToList }, dispatch),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(AddValue);
-
-AddValue.propTypes = {
-  addToList: PropTypes.func,
-};
+export default AddValue;
